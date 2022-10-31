@@ -5,5 +5,11 @@ block content
     - var results = [{"name": "Iron Man", "duration": 2.06, "director": "Jon Favreau"}, {"name": "Ghost Rider", "duration": 2.03, "director": "Mark Steven Johnson"}, {"name": "Ratatouille", "duration": 1.51, "director": "Brad Bird"}]
     div.container-fluid
         div.row
-            each item in results
-                div.col-sm-2 #{item["name"]}, #{item["duration"]}, #{item["director"]}
+            each item, index in results
+                div.col-sm-2(onclick=`buy(${index})`) #{item["name"]}, #{item["duration"]}, #{item["director"]}
+        
+
+    script. 
+        function buy(index) {
+            alert("You purchased item " + index);
+        }
